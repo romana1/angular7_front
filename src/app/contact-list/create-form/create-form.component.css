@@ -1,0 +1,14 @@
+.error {color: red;} 
+.hasError {border: 1px solid red;}
+.containerForm {
+    width: 300px;
+    clear: both;
+  }
+.containerForm label {
+  float: left
+}
+  
+.containerForm input {
+width: 100%;
+
+}

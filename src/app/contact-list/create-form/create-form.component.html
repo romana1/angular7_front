@@ -1,0 +1,23 @@
+<div class="containerForm">
+<form [formGroup]="formModel" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Username:</label>
+      <span class="error" [hidden]="!formModel.hasError('required', 'userName')">Username is required</span>
+      <input type="text" formControlName="userName">
+    </div>
+
+    <div>
+      <label>Email:</label>
+      <span class="error" [hidden]="!formModel.hasError('required', 'Email')">Email is required</span>
+      <input type="text" formControlName="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+    </div> 
+
+    <div>
+      <label>Comment text:</label>
+      <span class="error" [hidden]="!formModel.hasError('required', 'commentText')">Comment text is required</span>
+      <input type="text" formControlName="commentText">
+    </div>
+
+    <button type="submit" [disabled]="formModel.invalid">Submit</button>
+  </form>
+</div>

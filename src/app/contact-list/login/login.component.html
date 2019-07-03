@@ -1,0 +1,18 @@
+<div class="containerForm">
+<!-- <form [formGroup]="formModel" (ngSubmit)="onSubmit()"> -->
+    <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+    <div>
+      <label>Username:</label>
+      <!-- <span class="error" [hidden]="!formModel.hasError('required', 'userName')">Username is required</span> -->
+      <input type="text" name="username" ngModel required>
+    </div>
+
+    <div>
+      <label>Password:</label>
+      <!-- <span class="error" [hidden]="!formModel.hasError('required', 'Email')">Email is required</span> -->
+      <input type="text" required name="paasword" ngModel >
+    </div> 
+
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+</div>

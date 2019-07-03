@@ -1,13 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ContactListComponent } from './contact-list/contact-list.component';
-import { ContactDetailComponent } from './contact-detail/contact-detail.component';
+import { TableComponent } from './contact-list/table.component';
+import { CreateForm } from './contact-list/create-form/create-form.component';
 
 const routes: Routes = [
         {path: '', pathMatch: 'full', redirectTo: 'contacts'},
-	{path: 'contacts' , component: ContactListComponent},
-	{path: 'contact/:id' , component: ContactDetailComponent}
-
+  {
+    path: 'contacts' , 
+    component: TableComponent,
+    children: [
+      { 
+        path: '', 
+        component: CreateForm 
+      }
+    ] 
+  }
 ];
 
 @NgModule({

@@ -13,7 +13,8 @@ export class TokenService {
     return window.localStorage.getItem(this.TOKEN_KEY);   
   }
 
-  setToken(token: string): void {       
+  setToken(token: string): void {
+      console.log("setToken", token);       
       window.localStorage.setItem(this.TOKEN_KEY, token); 
   }
 

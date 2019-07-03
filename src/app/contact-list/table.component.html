@@ -1,0 +1,46 @@
+<login></login>
+
+<div class="columns">
+  <div class="column col-12">
+    <ngx-table
+      [configuration]="configuration"
+      [data]="data"
+      (event)="eventEmitted($event)"
+      [columns]="columns"
+      [pagination]="pagination"
+      (event)="eventEmitted($event)">
+    </ngx-table>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+<ng-template #phoneTpl let-row let-rowIndex="rowIndex">
+  <div class="phone" *ngIf="edit !== rowIndex">Text: {{row.text}}</div>
+  <div *ngIf="edit === rowIndex">
+    <input type="text"
+           placeholder="Text"
+           (blur)="update($event)"
+           class="form-label"
+           [value]="row.text">
+  </div>
+</ng-template>
+
+<ng-template #statusTpl let-row let-rowIndex="rowIndex">
+  <div class="status" *ngIf="edit !== rowIndex"> {{row.status === 0}} </div>
+  <div *ngIf="edit === rowIndex">
+      <input type="checkbox" [(ngModel)]="row.status" />
+
+  
+  </div>
+  <!-- <div *ngIf="edit === rowIndex">
+    <input type="text"
+           (change)="updateCheckbox($event)"
+           > -->
+           <!-- class="form-label"
+           > -->
+  <!-- </div> -->
+</ng-template>
+
+<ng-template #buttonTpl let-row let-rowIndex="rowIndex">
+  <button (click)="updateCheckbox($event)">Update</button>
+</ng-template>

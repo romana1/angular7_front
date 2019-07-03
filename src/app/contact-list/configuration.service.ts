@@ -6,7 +6,7 @@ export class ConfigService {
   public static config: Config = {
     searchEnabled: false,
     headerEnabled: true,
-    orderEnabled: false,
+    orderEnabled: true,
     paginationEnabled: true,
     exportEnabled: false,
     clickEvent: true,
